@@ -1,6 +1,6 @@
 <%-- 
     Document   : pesantiket
-    Created on : Dec 25, 2024, 5:02:02 PM
+    Created on : Dec 25, 2024, 5:02:02 PM
     Author     : gdrad
 --%>
 
@@ -14,7 +14,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pesan Tiket Film</title>
-        <link rel="stylesheet" href="css/desainpesantiket.css"/>
+        <link rel="stylesheet" href="css/pesantiket.css"/>
+        <script src="javascript/pesantiket.js"></script>
     </head>
     <body>
         <h2>Form Pemesanan Tiket Film</h2>
@@ -22,7 +23,7 @@
         <form action="" method="POST">
             <div class="form-group">
                 <label>Pilih Film:</label>
-                <select name="film" required>
+                <select name="film" id="filmSelect" required onchange="updateMoviePoster()">
                     <option value="">-- Pilih Film --</option>
                     <%
                         try {
@@ -30,7 +31,7 @@
                             Statement stmt = conn.createStatement();
                             ResultSet rs = stmt.executeQuery("SELECT * FROM film");
                             while (rs.next()) {
-                                out.println("<option value='" + rs.getString("id_film") + "'>"
+                                out.println("<option value='" + rs.getString("id_film") + "' data-poster='" + rs.getString("poster_url") + "'>"
                                         + rs.getString("judul_film") + "</option>");
                             }
                         } catch (Exception e) {
@@ -38,6 +39,11 @@
                         }
                     %>
                 </select>
+            </div>
+
+            <!-- Movie Poster Container -->
+            <div id="moviePoster" class="movie-poster">
+                <img id="posterImage" src="" alt="Movie Poster">
             </div>
 
             <div class="form-group">
@@ -84,50 +90,6 @@
 
             <input type="submit" name="pesan" value="Pesan Tiket" class="btn">
         </form>
-
-        <script>
-            function validateInput(input) {
-                var value = parseInt(input.value);
-                var errorMsg = document.getElementById('error-msg');
-                var submitBtn = document.getElementById('submit-btn');
-                var totalInput = document.getElementsByName('total_harga')[0];
-
-                if (value < 1) {
-                    errorMsg.style.display = 'block';
-                    submitBtn.disabled = true;
-                    totalInput.value = '0';
-                } else {
-                    errorMsg.style.display = 'none';
-                    submitBtn.disabled = false;
-                    hitungTotal();
-                }
-            }
-
-            function hitungTotal() {
-                var jumlah = document.getElementsByName('jumlah')[0].value;
-                var harga = document.getElementsByName('harga')[0].value;
-                var total = jumlah * harga;
-                document.getElementsByName('total_harga')[0].value = total;
-            }
-
-            function increase() {
-                var value = parseInt(document.getElementById('jumlah').value);
-                value = isNaN(value) ? 0 : value;
-                value++;
-                document.getElementById('jumlah').value = value;
-                hitungTotal();
-            }
-
-            function decrease() {
-                var value = parseInt(document.getElementById('jumlah').value);
-                value = isNaN(value) ? 0 : value;
-                if (value > 1) {
-                    value--;
-                    document.getElementById('jumlah').value = value;
-                    hitungTotal();
-                }
-            }
-        </script> 
         <%
             if (request.getMethod().equals("POST")) {
                 try {
@@ -234,7 +196,5 @@
                 }
             }
         %>
-
-    </table>
-</body>
+    </body>
 </html>

@@ -1,85 +1,123 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
+/* Movie List Page Styles */
+* {
     margin: 0;
     padding: 0;
-    text-align: center;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
-    padding: 20px;
-    background-color: #333;
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+    min-height: 100vh;
+}
+
+.movie-header {
+    width: 100%;
+    background-color: #2d3748;
     color: white;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 36px;
-}
-
-.content {
-    margin: 20px auto;
-    max-width: 1200px;
-}
-
-.content h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-.films {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.film {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
     text-align: center;
-    background-color: white;
-    border-radius: 5px;
+    padding: 1.8rem 0;
+    margin-bottom: 2.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.film:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.movie-header h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
-.film img {
-    max-width: 100%;
-    height: auto;
+.movie-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    color: #2d3748;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
     display: block;
-    margin: 0 auto 10px;
-    border-radius: 5px;
+    width: 50px;
+    height: 4px;
+    background: #4299e1;
+    margin: 0.5rem auto;
+    border-radius: 2px;
 }
 
-.film-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+.error-message {
+    background-color: #fff5f5;
+    color: #c53030;
+    padding: 1.2rem;
+    border-radius: 10px;
+    margin: 2rem auto;
+    text-align: center;
+    border: 1px solid #feb2b2;
+    max-width: 600px;
+    font-weight: 500;
 }
 
-.button-container {
-    margin: 20px 0;
-}
-
-.button-container button {
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
+.ticket-btn {
+    background: linear-gradient(45deg, #4299e1, #63b3ed);
     color: white;
-    background-color: #007BFF;
+    padding: 0.8rem 1.5rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: 1rem auto;
+    text-align: center;
 }
 
-.button-container button:hover {
-    background-color: #0056b3;
+.ticket-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
+    background: linear-gradient(45deg, #3182ce, #4299e1);
+}
+
+/* Empty State Styling */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.empty-state p {
+    color: #718096;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .movie-header h1 {
+        font-size: 2rem;
+    }
+
+    .movie-container {
+        padding: 0 1rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .empty-state {
+        margin: 1rem;
+        padding: 2rem;
+    }
 }

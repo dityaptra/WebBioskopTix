@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Form Login</title>
-        <<link rel="stylesheet" href="css/login.css"/>
+        <link rel="stylesheet" href="css/index.css">
     </head>
     <body>
         <%
