@@ -7,99 +7,91 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Author     : gdrad
 */
 
-/* Login Page Styles */
-* {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F6F4F0;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
 }
 
-.login-header {
+/* Header Styling */
+#menu {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
 }
 
-.login-header h1 {
-    font-size: 2.8rem;
-    color: #2d3748;
+#menu h1 {
+    font-size: 2.5em;
     font-weight: 700;
-    letter-spacing: 1px;
+    color: #4DA1A9;
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.login-container {
-    background-color: white;
-    padding: 3rem;
+/* Form Container */
+form {
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+}
+
+/* Table Styling */
+table {
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
 }
 
-.form-group {
-    margin-bottom: 1.8rem;
+table td {
+    padding: 10px;
+    vertical-align: middle;
 }
 
-.form-group label {
-    display: block;
-    margin-bottom: 0.8rem;
-    color: #2d3748;
-    font-weight: 500;
-    font-size: 1.1rem;
+table td:first-child {
+    text-align: left;
+    font-weight: bold;
+    color: #333;
 }
 
-.form-group input {
+table input[type="text"],
+table input[type="password"] {
     width: 100%;
-    padding: 1rem;
-    border: 2px solid #e2e8f0;
+    padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-size: 1em;
 }
 
-.form-group input:focus {
+table input[type="text"]:focus,
+table input[type="password"]:focus {
+    border-color: #6a11cb;
     outline: none;
-    border-color: #4299e1;
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+    box-shadow: 0px 0px 5px rgba(106, 17, 203, 0.5);
 }
 
-.login-btn {
-    background: linear-gradient(45deg, #4299e1, #63b3ed);
-    color: white;
-    padding: 1rem;
-    border: none;
-    border-radius: 8px;
+/* Button Styling */
+input[type="submit"] {
     width: 100%;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 12px;
+    background: linear-gradient(90deg, #2E5077, #4DA1A9);
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease, background 0.3s ease;
 }
 
-.login-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(66, 153, 225, 0.3);
-    background: linear-gradient(45deg, #3182ce, #4299e1);
-}
-
-@media (max-width: 768px) {
-    .login-container {
-        margin: 1rem;
-        padding: 2rem;
-    }
-
-    .login-header h1 {
-        font-size: 2.2rem;
-    }
+input[type="submit"]:hover {
+    background: linear-gradient(90deg, #4DA1A9, #2E5077);
+    transform: scale(1.05);
 }
